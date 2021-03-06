@@ -1,6 +1,7 @@
 const exportPwd = require("./pwd");
 const exportLs = require("./ls");
 const exportCat = require("./cat");
+const curl = require("./curl.js")
 // output a prompt
 process.stdout.write("prompt > ");
 
@@ -13,6 +14,8 @@ process.stdin.on("data", (data) => {
     exportLs();
   }else if (cmd[0] === 'cat' && cmd.length>1){
     exportCat(cmd[1])
+  } else if (cmd[0] === 'curl'){
+    curl(cmd[1])
   } else {
     process.stdout.write("You typed: " + cmd.join(' '));
   }
